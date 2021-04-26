@@ -1,14 +1,12 @@
-﻿#include <fftw3.h>
+#include <fftw3.h>
 #include "test1.h"
 #include <iostream>
 #include <stdlib.h>
 
 # define M_PI 3.141592653589793238462643383279502884
+# define REAL 0
+# define IMAG 1
 
-
-// convenience macros for the real and imaginary parts
-constexpr int REAL = 0;
-constexpr int IMAG = 1;
 
 /* Computes the 1-D fast Fourier transform. */
 void fft(fftw_complex* in, fftw_complex* out, int N)
@@ -65,10 +63,9 @@ double hanning(int i, int nn){
 	return (0.5 * (1.0 - cos(2.0*M_PI*(double)i / (double)(nn - 1))));
 }
 
-double windowing(int n, double *data, double scale, int i){
-	//for (int i = 0; i < n; i++)
+double windowing(int n, fftw_complex *data, double scale, int i){
 	double out;
-	out = data[i] *hanning(i, n) / scale;
+	out = data[i][REAL] *hanning(i, n) / scale;
 	return out;
 }
 
@@ -121,34 +118,36 @@ int main()
 	int channel = 0;
 	int temp;
 
-	int transform_size = 1024;
+	int transform_size = 256;
 	int step_size = transform_size / 2;
 	int half = transform_size / 2;
 	int frames = N / step_size;
 
-	fftw_complex *out;
+	fftw_complex *out, *in;
 	fftw_plan p;
 
-	double *processed = new double(transform_size/2+1);
-	double *in = new double(transform_size);
-	int** result = new int*[frames];
-	for (int i = 0; i < frames; i++)
+	double *processed = new double[half];
+	int** result = new int*[frames+1];
+	for (int i = 0; i < frames+1; i++)
 		result[i] = new int[half];
 	audioFile.printSummary();
 
 	out = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * transform_size);
-
-	std::cout << sampleRate << std::endl;
+	in = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * transform_size);
 
 	//Getting data from file in frames
-	for (int j = 0; j < frames; j++){
+	for (int j = 0; j <= frames; j++){
 		for (int i = 0; i < step_size; i++){
-			in[i] = (double)audioFile.samples[channel][i + step_size * j];
-			in[i] = windowing(transform_size, in, 1.0, i);
+			if ((i + step_size * j) >= (N-1))
+				in[i][REAL] = 0;
+			else {
+				in[i][REAL] = (double)audioFile.samples[channel][i + step_size * j];
+				in[i][REAL] = windowing(transform_size, in, 1.0, i);
+			}
 		}
 		
 		//Executing fft
-		p = fftw_plan_dft_r2c_1d(transform_size, in, out, FFTW_ESTIMATE);
+		p = fftw_plan_dft_1d(transform_size, in, out, FFTW_BACKWARD, FFTW_ESTIMATE);
 		fftw_execute(p);
 		
 		//Processing results and normalization for spectrum
@@ -158,28 +157,28 @@ int main()
 			out[i][1] *= (2. / transform_size);                           // complex values
 			processed[i] = out[i][0] * out[i][0] + out[i][1] * out[i][1]; // power spectrum
 			processed[i] = 10. / log(10.) * log(processed[i] + 1e-6);     // dB
-
+			
 			if (processed[i] <= 0) {
 				processed[i] = 0;
 			}
 			else {
-				processed[i] /= 96.;             
+				processed[i] /= 96.;
 				if (processed[i] > 1)
 					processed[i] = 1;
 			}
-
+			// where j is index of current frame
 			result[j][(half - 1) - i] = processed[i] * 255;
 		}
 		fftw_destroy_plan(p);
 		fftw_cleanup();
 	}
 	FILE *image;
-	image = fopen("image.ppm", "wb");
+	image = fopen("image.pgm", "wb");
 	fprintf(image, "P2\n");
 	fprintf(image, "%d %d\n", frames, half);
 	fprintf(image, "255\n");
 
-	for (int i = 0; i < frames; i++) {
+	for (int i = 0; i <= frames; i++) {
 		for (int j = 0; j < half; j++) {
 			temp = result[i][j];
 			fprintf(image, "%d ", temp);
@@ -188,6 +187,7 @@ int main()
 	}
 	fclose(image);
 	fftw_free(out);
+	fftw_free(in);
 
 	return 0;
 }
