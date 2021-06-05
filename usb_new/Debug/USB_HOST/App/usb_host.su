@@ -1,0 +1,7 @@
+usb_host.c:69:6:USB_Error_Handler	8	static
+usb_host.c:80:6:Write_usb	24	static
+usb_host.c:126:7:open_r	16	static
+usb_host.c:139:6:Read_usb	24	static
+usb_host.c:188:6:MX_USB_HOST_Init	8	static
+usb_host.c:215:6:MX_USB_HOST_Process	8	static
+usb_host.c:223:13:USBH_UserProcess	16	static
