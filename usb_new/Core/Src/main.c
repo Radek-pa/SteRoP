@@ -103,13 +103,13 @@ int main(void)
   uint8_t wtext[4096]; /* File write buffer */
   uint8_t rtext[100];
   FILE * rFile;
-//  int flag_er;
+  int flag_er;
 
- // flag_er = BSP_AUDIO_IN_Init(44100, 8, 1);
+  flag_er = BSP_AUDIO_IN_Init(44100, 8, 1);
 
-/*  if(flag_er != 0){
+  if(flag_er != 0){
 	  Error_Handler();
-  }*/
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */

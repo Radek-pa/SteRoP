@@ -59,6 +59,10 @@
 	</linkedResources>
 	<variableList>
 		<variable>
+			<name>PDM2PCM</name>
+			<value>file:/C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Middlewares/ST/STM32_Audio/Addons/PDM</value>
+		</variable>
+		<variable>
 			<name>copy_PARENT</name>
 			<value>$%7BPARENT-3-PROJECT_LOC%7D/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2</value>
 		</variable>
