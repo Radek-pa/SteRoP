@@ -77,6 +77,54 @@ void USB_Error_Handler(void)
   /* USER CODE END USB_Error_Handler */
 }
 
+int open_to_write(){
+	if (flag_usb == 1){
+		if(f_mount(&USBDISKFatFs, (TCHAR const*)USBDISKPath, 0) != FR_OK)
+		{
+			/* FatFs Initialization Error */
+			USB_Error_Handler();
+		}
+		else
+		{
+			/* Create and Open a new text file object with write access */
+			if(f_open(&MyFile, "Nag.wav", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+			{
+				/* 'STM32.TXT' file Open for write Error */
+				USB_Error_Handler();
+			}
+			else
+			{
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
+
+void Write_with_open(uint8_t* write, int size){
+	FRESULT res;                                          /* FatFs function common result code */
+	uint32_t byteswritten;
+
+	/* Write data to the text file */
+	res = f_write(&MyFile, write, size, (void *)&byteswritten);
+
+	if((byteswritten == 0) || (res != FR_OK))
+	{
+		/* 'STM32.TXT' file Write or EOF Error */
+		USB_Error_Handler();
+	}
+	else
+	{
+		/* Close the open text file */
+		f_close(&MyFile);
+		HAL_GPIO_WritePin(LD4_GPIO_Port,LD4_Pin,GPIO_PIN_SET);
+	}
+	FATFS_UnLinkDriver(USBDISKPath);
+}
+
+
+
 void Write_usb(uint8_t* write, int size)
 {
   FRESULT res;                                          /* FatFs function common result code */

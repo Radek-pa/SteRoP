@@ -101,7 +101,7 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
   uint8_t wtext[4096]; /* File write buffer */
-  uint8_t rtext[100];
+  uint8_t rtext[44] = "This is STM32 working with FatFs";
   FILE * rFile;
   int flag_er;
 
@@ -110,6 +110,12 @@ int main(void)
   if(flag_er != 0){
 	  Error_Handler();
   }
+
+  if(BSP_AUDIO_IN_Record(wtext, sizeof(wtext))== 1){
+          	Error_Handler();
+  }
+
+  BSP_AUDIO_IN_Stop();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -118,10 +124,26 @@ int main(void)
   {
     /* USER CODE END WHILE */
     MX_USB_HOST_Process();
-    // BSP_AUDIO_IN_Record(wtext, sizeof(wtext));
-    //Write_usb(wtext, sizeof(wtext));
-    rFile = open_r("Name.TXT");
-    HAL_Delay(10);
+    if(open_to_write() == 1){
+    	  flag_er = BSP_AUDIO_IN_Init(44100, 8, 1);
+
+    	  if(flag_er != 0){
+    		  Error_Handler();
+    	  }
+
+    	  if(BSP_AUDIO_IN_Record(wtext, sizeof(wtext))== 1){
+    	          	Error_Handler();
+    	  }
+
+    	  BSP_AUDIO_IN_Stop();
+
+    	  Write_with_open(wtext, sizeof(wtext));
+    }
+//   Write_usb(rtext, sizeof(rtext));
+//    BSP_AUDIO_IN_Record(wtext, sizeof(wtext));
+//    Write_usb(wtext, sizeof(wtext));
+    //rFile = open_r("Name.TXT");
+    //HAL_Delay(10);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

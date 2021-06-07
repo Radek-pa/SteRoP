@@ -73,6 +73,15 @@ void MX_USB_HOST_Init(void);
 
 void MX_USB_HOST_Process(void);
 
+
+void USB_Error_Handler(void);
+
+int open_to_write();
+
+void Write_with_open(uint8_t* write, int size);
+
+void Write_usb(uint8_t* write, int size);
+
 /**
   * @}
   */
