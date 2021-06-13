@@ -30,6 +30,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
 #include "stm32f4xx_hal.h"
+#include <stdio.h>
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -82,6 +83,16 @@ void Write_with_open(uint8_t* write, int size);
 
 void Write_usb(uint8_t* write, int size);
 
+void Write_the_header();
+
+int open_to_read();
+
+void Read_with_open(uint8_t* read, int size);
+
+void Close_usb();
+
+FILE* open_w(char* name);
+int usb_ready();
 /**
   * @}
   */

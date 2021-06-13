@@ -25,7 +25,7 @@
 #include "spi.h"
 #include "usb_host.h"
 #include "gpio.h"
-
+#include "stm32f411e_discovery_audio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -100,50 +100,44 @@ int main(void)
   MX_USB_HOST_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t wtext[4096]; /* File write buffer */
-  uint8_t rtext[44] = "This is STM32 working with FatFs";
-  FILE * rFile;
-  int flag_er;
+  uint16_t wtext[22050]; /* File write buffer */
+//  uint8_t rtext[44] = "This is STM32 working with FatFs";
+//  FILE * rFile;
+  int flag_ex;
 
-  flag_er = BSP_AUDIO_IN_Init(44100, 8, 1);
-
-  if(flag_er != 0){
-	  Error_Handler();
-  }
-
-  if(BSP_AUDIO_IN_Record(wtext, sizeof(wtext))== 1){
-          	Error_Handler();
-  }
-
-  BSP_AUDIO_IN_Stop();
+  flag_ex = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-    MX_USB_HOST_Process();
-    if(open_to_write() == 1){
-    	  flag_er = BSP_AUDIO_IN_Init(44100, 8, 1);
+	if(flag_ex == 0){
+		MX_USB_HOST_Process();
+		if(open_to_write() == 1){
 
-    	  if(flag_er != 0){
-    		  Error_Handler();
-    	  }
+			Write_the_header();
 
-    	  if(BSP_AUDIO_IN_Record(wtext, sizeof(wtext))== 1){
-    	          	Error_Handler();
-    	  }
+			for(int i = 0 ; i <3 ; ++i){
+				BSP_AUDIO_IN_Init(22050,16,1);
 
-    	  BSP_AUDIO_IN_Stop();
+				BSP_AUDIO_IN_Record(wtext,sizeof(wtext));
 
-    	  Write_with_open(wtext, sizeof(wtext));
-    }
+				BSP_AUDIO_IN_Stop();
+
+				Write_with_open(wtext,sizeof(wtext)*2);
+			}
+			Close_usb();
+			HAL_GPIO_WritePin(LD4_GPIO_Port,LD4_Pin,GPIO_PIN_SET);
+			flag_ex = 1;
+		}
+	}
 //   Write_usb(rtext, sizeof(rtext));
 //    BSP_AUDIO_IN_Record(wtext, sizeof(wtext));
 //    Write_usb(wtext, sizeof(wtext));
     //rFile = open_r("Name.TXT");
     //HAL_Delay(10);
+	/* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

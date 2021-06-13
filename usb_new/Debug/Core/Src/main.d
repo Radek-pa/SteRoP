@@ -1,4 +1,4 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -47,7 +47,26 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/usbh_diskio.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h ../Core/Inc/i2s.h ../Core/Inc/spi.h \
- ../USB_HOST/App/usb_host.h ../Core/Inc/gpio.h
+ ../USB_HOST/App/usb_host.h ../Core/Inc/gpio.h \
+ C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery_audio.h \
+ c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\cs43l22\cs43l22.h \
+ c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\common\audio.h \
+ C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery.h \
+ c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\middlewares\st\stm32_audio\addons\pdm\inc\pdm2pcm_glo.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/spectogram.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/AudioFile.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaborator.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_naive.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/corecrt_math_defines.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaussian.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/affine_transform.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pod_vector.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pool.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/ref.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/vector_math.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/render.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h
 
 ../Core/Inc/main.h:
 
@@ -162,3 +181,41 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../USB_HOST/App/usb_host.h:
 
 ../Core/Inc/gpio.h:
+
+C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery_audio.h:
+
+c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\cs43l22\cs43l22.h:
+
+c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\common\audio.h:
+
+C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery.h:
+
+c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\middlewares\st\stm32_audio\addons\pdm\inc\pdm2pcm_glo.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/spectogram.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/AudioFile.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaborator.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_naive.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/corecrt_math_defines.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaussian.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/affine_transform.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pod_vector.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pool.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/ref.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/vector_math.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/render.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h:

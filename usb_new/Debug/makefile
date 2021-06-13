@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include USB_HOST/Target/subdir.mk
 -include USB_HOST/App/subdir.mk
+-include Spectogram/Src/subdir.mk
 -include Middlewares/Third_Party/FatFs/src/option/subdir.mk
 -include Middlewares/Third_Party/FatFs/src/subdir.mk
 -include Middlewares/ST/STM32_USB_Host_Library/Core/Src/subdir.mk
@@ -25,6 +26,18 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
 ifneq ($(strip $(S_DEPS)),)
 -include $(S_DEPS)
 endif
@@ -33,6 +46,9 @@ ifneq ($(strip $(S_UPPER_DEPS)),)
 endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
 endif
 endif
 
@@ -57,7 +73,7 @@ all: usb_new.elf secondary-outputs
 
 # Tool invocations
 usb_new.elf: $(OBJS) $(USER_OBJS) C:\Users\rprch\STM32CubeIDE\proby\usb_new\STM32F411VETX_FLASH.ld
-	arm-none-eabi-gcc -o "usb_new.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\rprch\STM32CubeIDE\proby\usb_new\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="usb_new.map" -Wl,--gc-sections -static -L"C:\Users\rprch\STM32Cube\Repository\STM32Cube_FW_F4_V1.25.2\Middlewares\ST\STM32_Audio\Addons\PDM\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-g++ -o "usb_new.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\rprch\STM32CubeIDE\proby\usb_new\STM32F411VETX_FLASH.ld" -Wl,-Map="usb_new.map" -Wl,--gc-sections -static -L"C:\Users\rprch\STM32Cube\Repository\STM32Cube_FW_F4_V1.25.2\Middlewares\ST\STM32_Audio\Addons\PDM\Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

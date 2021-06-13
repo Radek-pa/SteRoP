@@ -16,7 +16,8 @@
 #include "AudioFile.h"
 #include "gaborator.h"
 #include "render.h"
+#include "usb_host.h"
 
-int _spectogram(const char *path);
+int _spectogram();
 
 #endif
