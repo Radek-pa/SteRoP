@@ -59,7 +59,10 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/copy_array.hpp \
  C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_settings.h \
  C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/error_handling.hpp \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp \
+ C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery_accelerometer.h \
+ c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\lsm303dlhc\lsm303dlhc.h \
+ c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\common\accelero.h
 
 ../Core/Inc/main.h:
 
@@ -198,3 +201,9 @@ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_settings.h:
 C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/error_handling.hpp:
 
 C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp:
+
+C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery_accelerometer.h:
+
+c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\lsm303dlhc\lsm303dlhc.h:
+
+c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\drivers\bsp\components\common\accelero.h:

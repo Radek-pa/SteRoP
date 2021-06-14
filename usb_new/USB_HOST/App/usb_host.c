@@ -52,8 +52,8 @@ FIL MyFile;  				/* File object */
 FILE* rFILE;
 char USBDISKPath[4];          /* USB Host logical drive path */
 USBH_HandleTypeDef hUSB_Host; /* USB Host handle */
-uint8_t wtext[] = "This is STM32 working with FatFs"; /* File write buffer */
-uint8_t rtext[100];
+//uint8_t ltext[] = "This is STM32 working with FatFs"; /* File write buffer */
+//uint8_t rtext[100];
 volatile int flag_usb = 0;
 /* USER CODE END 0 */
 
@@ -251,8 +251,8 @@ void Write_the_header(){
 
 	/* Write the Sample Rate in Hz ---------------------------------------------*/
 	/* Write Little Endian ie. 8000 = 0x00001F40 => byte[24]=0x40, byte[27]=0x00*/
-	pHeader[24]  = 0x22;
-	pHeader[25]  = 0x56;
+	pHeader[24]  = 0x80;
+	pHeader[25]  = 0x3E;
 	pHeader[26]  = 0x00;
 	pHeader[27]  = 0x00;
 

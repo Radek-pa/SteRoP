@@ -33,12 +33,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stm32f411e_discovery_accelerometer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+//uint8_t wtext[22050];
+//uint8_t rec[11025];
+volatile int flag_p = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -61,7 +63,16 @@ void SystemClock_Config(void);
 void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
+void BSP_AUDIO_IN_TransferComplete_CallBack(void)
+{
+  /* PDM to PCM data convert */
+//  BSP_AUDIO_IN_PDMToPCM((uint16_t*)rec, (uint16_t*)wtext);
 
+  flag_p = 1;
+}
+void BSP_AUDIO_IN_HalfTransfer_CallBack(void){
+
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -104,12 +115,22 @@ int main(void)
   MX_USB_HOST_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t wtext[22050]; /* File write buffer */
+ // uint8_t wtext[22050]; /* File write buffer */
 //  uint8_t rtext[44] = "This is STM32 working with FatFs";
-  FILE* wFile;
+ // FILE* wFile;
   int flag_ex;
-
+  uint8_t wtext[22050];
+  uint8_t rec[4096];
   flag_ex = 0;
+
+
+  if(BSP_ACCELERO_Init() != ACCELERO_OK)
+   {
+      /* Initialization Error */
+     Error_Handler();
+   }
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -117,22 +138,33 @@ int main(void)
 
   while (1)
   {
+/*
+	while(flag_p == 0){
+		BSP_AUDIO_IN_Init(22050,8,1);
 
+		BSP_AUDIO_IN_Record((uint16_t*)rec,sizeof(rec));
+
+		while(flag_p == 0){
+			HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+			HAL_Delay(10);
+		}
+		BSP_AUDIO_IN_Stop();
+	}
+	*/
 	if(flag_ex == 0){
 		MX_USB_HOST_Process();
 		if(open_to_write("Nag.wav") == 1){
 
 			Write_the_header();
+			BSP_AUDIO_IN_Init(22050,8,1);
 
-			for(int i = 0 ; i <3 ; ++i){
-				BSP_AUDIO_IN_Init(22050,8,1);
+			BSP_AUDIO_IN_Record((uint16_t*)rec,sizeof(rec));
 
-				BSP_AUDIO_IN_Record((uint16_t*)wtext,sizeof(wtext));
+			BSP_AUDIO_IN_Stop();
+//			BSP_AUDIO_IN_PDMToPCM((uint16_t*)rec, (uint16_t*)wtext);
+			HAL_GPIO_WritePin(LD3_GPIO_Port,LD3_Pin,GPIO_PIN_RESET);
+			Write_with_open(wtext,sizeof(wtext));
 
-				BSP_AUDIO_IN_Stop();
-
-				Write_with_open(wtext,sizeof(wtext));
-			}
 			Close_usb();
 			HAL_GPIO_WritePin(LD4_GPIO_Port,LD4_Pin,GPIO_PIN_SET);
 			flag_ex = 1;

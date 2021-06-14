@@ -30,10 +30,14 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
 #include "stm32f4xx_hal.h"
-#include <stdio.h>
 
 /* USER CODE BEGIN INCLUDE */
-
+ int open_to_write(char* name);
+ int open_to_read();
+ void Read_with_open(uint8_t* read, int size);
+ void Write_with_open(uint8_t* write, int size);
+ void Close_usb();
+ void Write_the_header();
 /* USER CODE END INCLUDE */
 
 /** @addtogroup USBH_OTG_DRIVER
@@ -74,25 +78,6 @@ void MX_USB_HOST_Init(void);
 
 void MX_USB_HOST_Process(void);
 
-
-void USB_Error_Handler(void);
-
-int open_to_write(char* name);
-
-void Write_with_open(uint8_t* write, int size);
-
-void Write_usb(uint8_t* write, int size);
-
-void Write_the_header();
-
-int open_to_read();
-
-void Read_with_open(uint8_t* read, int size);
-
-void Close_usb();
-
-FILE* open_w(char* name);
-int usb_ready();
 /**
   * @}
   */
