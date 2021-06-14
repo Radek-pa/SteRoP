@@ -13,10 +13,9 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
-#include "AudioFile.h"
-#include "gaborator.h"
-#include "render.h"
 #include "usb_host.h"
+#include "fft.h"
+#include "fft_settings.h"
 
 int _spectogram();
 

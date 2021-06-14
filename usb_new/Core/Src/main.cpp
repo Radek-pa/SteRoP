@@ -120,7 +120,7 @@ int main(void)
 
 	if(flag_ex == 0){
 		MX_USB_HOST_Process();
-		if(open_to_write() == 1){
+		if(open_to_write("Nag.wav") == 1){
 
 			Write_the_header();
 

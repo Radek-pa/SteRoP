@@ -77,7 +77,7 @@ void MX_USB_HOST_Process(void);
 
 void USB_Error_Handler(void);
 
-int open_to_write();
+int open_to_write(char* name);
 
 void Write_with_open(uint8_t* write, int size);
 

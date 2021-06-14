@@ -1,5 +1,5 @@
 usb_host.c:69:6:USB_Error_Handler	8	static
-usb_host.c:80:5:open_to_write	8	static
+usb_host.c:80:5:open_to_write	16	static
 usb_host.c:105:5:open_to_read	8	static
 usb_host.c:130:6:Read_with_open	24	static
 usb_host.c:142:6:Write_with_open	24	static

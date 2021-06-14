@@ -54,19 +54,12 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  C:/Users/rprch/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.2/Drivers/BSP/STM32F411E-Discovery/stm32f411e_discovery.h \
  c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\middlewares\st\stm32_audio\addons\pdm\inc\pdm2pcm_glo.h \
  C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/spectogram.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/AudioFile.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaborator.h \
  C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_naive.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/corecrt_math_defines.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaussian.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/affine_transform.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pod_vector.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pool.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/ref.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/vector_math.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/render.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.hpp \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/copy_array.hpp \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_settings.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/error_handling.hpp \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp
 
 ../Core/Inc/main.h:
 
@@ -194,28 +187,14 @@ c:\users\rprch\stm32cube\repository\stm32cube_fw_f4_v1.25.2\middlewares\st\stm32
 
 C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/spectogram.h:
 
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/AudioFile.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaborator.h:
-
 C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h:
 
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_naive.h:
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.hpp:
 
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/corecrt_math_defines.h:
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/copy_array.hpp:
 
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaussian.h:
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_settings.h:
 
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/affine_transform.h:
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/error_handling.hpp:
 
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pod_vector.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pool.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/ref.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/vector_math.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/render.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h:
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp:

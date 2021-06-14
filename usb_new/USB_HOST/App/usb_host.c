@@ -77,7 +77,7 @@ void USB_Error_Handler(void)
   /* USER CODE END USB_Error_Handler */
 }
 
-int open_to_write(){
+int open_to_write(char* name){
 	if (flag_usb == 1){
 		if(f_mount(&USBDISKFatFs, (TCHAR const*)USBDISKPath, 0) != FR_OK)
 		{
@@ -87,7 +87,7 @@ int open_to_write(){
 		else
 		{
 			/* Create and Open a new text file object with write access */
-			if(f_open(&MyFile, "Nag.wav", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+			if(f_open(&MyFile, name, FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
 			{
 				/* 'STM32.TXT' file Open for write Error */
 				USB_Error_Handler();

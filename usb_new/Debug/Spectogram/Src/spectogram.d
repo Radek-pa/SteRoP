@@ -1,18 +1,5 @@
 Spectogram/Src/spectogram.o: ../Spectogram/Src/spectogram.cpp \
  C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/spectogram.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/AudioFile.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaborator.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_naive.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/corecrt_math_defines.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaussian.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/affine_transform.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pod_vector.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pool.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/ref.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/vector_math.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/render.h \
- C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h \
  ../USB_HOST/App/usb_host.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
@@ -45,35 +32,15 @@ Spectogram/Src/spectogram.o: ../Spectogram/Src/spectogram.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.hpp \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/copy_array.hpp \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_settings.h \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/error_handling.hpp \
+ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp
 
 C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/spectogram.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/AudioFile.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaborator.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_naive.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/corecrt_math_defines.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/gaussian.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/affine_transform.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pod_vector.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/pool.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/ref.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/vector_math.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/render.h:
-
-C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h:
 
 ../USB_HOST/App/usb_host.h:
 
@@ -140,3 +107,15 @@ C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/resample2.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft.hpp:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/copy_array.hpp:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_settings.h:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/error_handling.hpp:
+
+C:/Users/rprch/STM32CubeIDE/SteRoP/Spectogram/Inc/fft_impl.hpp:
